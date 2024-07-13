@@ -101,14 +101,16 @@ Metode evaluasi yang digunakan dalam proyek ini adalah Mean Absolute Error (MAE)
   $$RMSE=\sqrt{\frac{1}{n}\sum_{i=1}^{n}\left(y_i-\hat{y}_i \right)^{2}}$$
 
 ### Hasil Evaluasi Model
-* MAE: Mean Absolute Error adalah 0.317
-* RMSE: Root Mean Squared Error adalah 0.391
+* MAE: Mean Absolute Error adalah 0.0507
+* RMSE: Root Mean Squared Error adalah 0.1620
 
 ### Kesimpulan
 Metrik evaluasi yang digunakan dalam laporan ini, yaitu Mean Absolute Error (MAE) dan Root Mean Squared Error (RMSE), sesuai dengan konteks penggunaan dalam sistem rekomendasi ini. MAE digunakan untuk mengukur rata-rata absolut dari selisih antara nilai prediksi dan nilai aktual, memberikan informasi tentang rata-rata kesalahan prediksi yang dapat diharapkan dari model. Di sisi lain, RMSE memberikan gambaran tentang seberapa besar kesalahan prediksi dalam skala yang lebih besar, dengan memberikan bobot lebih besar pada kesalahan yang lebih besar.
 
-Penggunaan kedua metrik ini penting karena membantu mengevaluasi seberapa baik model dapat memprediksi skor film berdasarkan preferensi pengguna, sesuai dengan tujuan proyek untuk meningkatkan kualitas rekomendasi film kepada pengguna.
+Dari hasil evaluasi model sistem rekomendasi film berdasarkan preferensi pengguna, diperoleh nilai Mean Absolute Error (MAE) sebesar 0.051 dan Root Mean Squared Error (RMSE) sebesar 0.162.
 
-Hasil evaluasi model menunjukkan bahwa model memiliki performa yang baik dalam memprediksi skor film berdasarkan preferensi pengguna. MAE yang diperoleh sebesar 0.317 menunjukkan bahwa rata-rata kesalahan prediksi model relatif kecil. Selain itu, RMSE sebesar 0.391 mengindikasikan bahwa model memiliki kemampuan untuk membuat prediksi yang presisi dan mendekati nilai sebenarnya dengan akurat.
+MAE yang rendah, sebesar 0.051, menunjukkan bahwa rata-rata kesalahan prediksi model relatif kecil. Artinya, model cenderung memberikan rekomendasi yang sangat dekat dengan preferensi pengguna dalam menyarankan film. Sementara RMSE yang juga rendah, yaitu 0.162, mengindikasikan bahwa model memiliki kemampuan untuk membuat prediksi yang stabil dan akurat dalam menentukan skor film yang direkomendasikan.
 
-Performa model yang solid ini memberikan keyakinan bahwa rekomendasi yang diberikan kepada pengguna dapat diandalkan dan akurat sesuai dengan preferensi mereka terhadap film. Evaluasi ini juga menunjukkan bahwa model telah berhasil menginterpretasikan pola dari data yang tersedia dengan baik, sehingga mampu memberikan nilai prediksi yang mendekati nilai sebenarnya dengan tingkat kesalahan yang minim.
+Hasil evaluasi ini menegaskan bahwa model sistem rekomendasi yang dikembangkan telah berhasil dalam memberikan rekomendasi film yang sesuai dengan preferensi pengguna dengan tingkat kesalahan yang sangat rendah. Kedua metrik evaluasi ini memberikan keyakinan bahwa rekomendasi yang diberikan kepada pengguna dapat diandalkan dan akurat, meningkatkan kepuasan pengguna dalam menemukan film yang mereka nikmati.
+
+Dengan demikian, model ini telah berhasil mencapai tujuan untuk meningkatkan kualitas rekomendasi film kepada pengguna, serta memberikan dasar yang solid untuk pengembangan dan perbaikan lebih lanjut di masa mendatang.
