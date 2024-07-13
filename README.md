@@ -18,7 +18,7 @@ Proyek ini penting karena dengan semakin banyaknya konten yang tersedia di platf
 2. Collaborative Filtering: Membuat tabel pivot untuk skor IMDB dan menggunakannya untuk menghitung kemiripan antar film, kemudian memberikan rekomendasi berdasarkan kemiripan ini.
 
 ## Data Understanding
-Dataset yang digunakan adalah dari Kaggle dengan link [Netflix Dataset](https://www.kaggle.com/datasets/data855/heart-disease) Dataset ini berisi 1025 sampel dan 6 atribut.
+Dataset yang digunakan adalah dari Kaggle dengan link [Netflix Dataset](https://www.kaggle.com/datasets/data855/heart-disease) Dataset ini berisi 584 sampel dan 6 atribut.
 
 ### Kondisi Dataset
 Setelah dilakukan pemeriksaan, tidak ditemukan adanya nilai null atau missing values pada dataset ini. Hal ini menunjukkan bahwa dataset sudah lengkap dan tidak perlu dilakukan imputasi data.
@@ -64,12 +64,12 @@ Content-Based Filtering adalah pendekatan dalam sistem rekomendasi yang mengguna
 4. Example Recommendations: Memberikan contoh rekomendasi
 
 #### Kelebihan dan Kekurangan Content-Based Filtering
-Kelebihan:
-* Tidak memerlukan data pengguna lain untuk memberikan rekomendasi.
-* Mudah diimplementasikan.
-Kekurangan:
-* Hanya dapat merekomendasikan film yang serupa dengan yang sudah pernah dilihat oleh pengguna.
-* Tidak dapat menangkap preferensi pengguna secara dinamis.
+* Kelebihan:
+    * Tidak memerlukan data pengguna lain untuk memberikan rekomendasi.
+    * Mudah diimplementasikan.
+* Kekurangan:
+    * Hanya dapat merekomendasikan film yang serupa dengan yang sudah pernah dilihat oleh pengguna.
+    * Tidak dapat menangkap preferensi pengguna secara dinamis.
 
 ### Collaborative Filtering
 Collaborative Filtering adalah pendekatan yang berfokus pada penggunaan informasi dari pengguna lain untuk memberikan rekomendasi. Dalam kasus ini, collaborative filtering digunakan untuk merekomendasikan film berdasarkan preferensi pengguna lain yang memiliki kesamaan dalam skor IMDB.
@@ -81,12 +81,12 @@ Collaborative Filtering adalah pendekatan yang berfokus pada penggunaan informas
 4. Example Recommendations: Memberikan contoh rekomendasi
 
 #### Kelebihan dan Kekurangan Collaborative Filtering
-Kelebihan:
-* Dapat menangkap preferensi pengguna secara dinamis.
-* Dapat merekomendasikan film yang berbeda dari yang sudah pernah dilihat pengguna.
-Kekurangan:
-* Memerlukan data dari banyak pengguna untuk memberikan rekomendasi yang akurat.
-* Sulit diimplementasikan untuk pengguna baru yang belum memiliki riwayat interaksi.
+* Kelebihan:
+    * Dapat menangkap preferensi pengguna secara dinamis.
+    * Dapat merekomendasikan film yang berbeda dari yang sudah pernah dilihat pengguna.
+* Kekurangan:
+    * Memerlukan data dari banyak pengguna untuk memberikan rekomendasi yang akurat.
+    * Sulit diimplementasikan untuk pengguna baru yang belum memiliki riwayat interaksi.
 
 ## Evaluation
 Pada bagian ini, kita menggunakan beberapa metrik evaluasi untuk menilai performa model yang dikembangkan, yaitu MAE dan RMSE. Berikut penjelasan mengenai metrik yang digunakan dan hasil proyek berdasarkan metrik tersebut:
@@ -94,8 +94,10 @@ Pada bagian ini, kita menggunakan beberapa metrik evaluasi untuk menilai perform
 ### Metrik Evaluasi yang Digunakan
 Metode evaluasi yang digunakan dalam proyek ini adalah Mean Absolute Error (MAE) dan Root Mean Squared Error (RMSE):
 * Mean Absolute Error (MAE): Mean Absolute Error mengukur rata-rata absolut dari selisih antara nilai prediksi dan nilai aktual. Semakin kecil nilai MAE, semakin baik performa model.
+
   $$MAE=\frac{1}{n}\sum_{i=1}^{n}\left| y_i-\hat{y}_i \right|$$
 * Root Mean Squared Error (RMSE): Root Mean Squared Error mengukur akar kuadrat dari rata-rata kuadrat selisih antara nilai prediksi dan nilai aktual. Nilai RMSE yang lebih kecil menunjukkan performa model yang lebih baik.
+
   $$RMSE=\sqrt{\frac{1}{n}\sum_{i=1}^{n}\left(y_i-\hat{y}_i \right)^{2}}$$
 
 ### Hasil Evaluasi Model
