@@ -58,8 +58,8 @@ Dataset ini memberikan informasi yang cukup lengkap mengenai atribut-atribut yan
 
 4. Memisahkan Fitur dan Label: Memisahkan fitur dan label adalah langkah di mana kita memisahkan atribut input (fitur) dari target output (label) yang ingin diprediksi oleh model.
     * Dalam proyek ini:
-          * Fitur (X): Semua kolom yang telah dinormalisasi.
-          * Label (y): Kolom 'IMDB Score'.
+        * Fitur (X): Semua kolom yang telah dinormalisasi.
+        * Label (y): Kolom 'IMDB Score'.
 
 5. Split Data Menjadi Training dan Testing Set: Membagi data menjadi training dan testing set adalah langkah untuk memastikan model dapat dievaluasi secara objektif. Data training digunakan untuk melatih model, sedangkan data testing digunakan untuk menguji performa model pada data yang belum pernah dilihat sebelumnya.
     * Dalam proyek ini, konfigurasi split data menggunakan skala 80:20, artinya 80% data digunakan untuk training dan 20% data digunakan untuk testing. Penggunaan random_state=42 memastikan bahwa pembagian data dilakukan secara konsisten setiap kali kode dijalankan, memungkinkan reproduksibilitas hasil.
