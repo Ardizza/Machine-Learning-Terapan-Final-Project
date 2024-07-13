@@ -18,7 +18,7 @@ Proyek ini penting karena dengan semakin banyaknya konten yang tersedia di platf
 2. Collaborative Filtering: Membuat tabel pivot untuk skor IMDB dan menggunakannya untuk menghitung kemiripan antar film, kemudian memberikan rekomendasi berdasarkan kemiripan ini.
 
 ## Data Understanding
-Dataset yang digunakan adalah dari Kaggle dengan link [Netflix Dataset](https://www.kaggle.com/datasets/data855/heart-disease) Dataset ini berisi 584 sampel dan 6 atribut.
+Dataset yang digunakan adalah dari Kaggle dengan link [Netflix Dataset](https://www.kaggle.com/datasets/luiscorter/netflix-original-films-imdb-scores) Dataset ini berisi 584 sampel dan 6 atribut.
 
 ### Kondisi Dataset
 Setelah dilakukan pemeriksaan, tidak ditemukan adanya nilai null atau missing values pada dataset ini. Hal ini menunjukkan bahwa dataset sudah lengkap dan tidak perlu dilakukan imputasi data.
