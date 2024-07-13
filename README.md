@@ -1,17 +1,19 @@
 # Laporan Proyek Machine Learning - Rafi Ardizza Fadhillah Setiadi
 ## Project Overview
-Pada proyek ini, saya mengembangkan sebuah model sistem rekomendasi menggunakan dataset "NetflixOriginals.csv" yang tersedia di repositori GitHub. Dataset ini berisi informasi tentang film-film original Netflix, termasuk judul, genre, bahasa, tanggal rilis, dan skor IMDB. Sistem rekomendasi ini akan membantu pengguna menemukan film-film yang relevan berdasarkan preferensi mereka.
+### Latar Belakang
+Dengan semakin banyaknya konten yang tersedia di platform streaming seperti Netflix, pengguna sering kali kesulitan menemukan film yang sesuai dengan selera mereka. Hal ini dapat mengakibatkan pengalaman pengguna yang kurang memuaskan dan waktu yang terbuang dalam mencari film yang diinginkan. Salah satu cara untuk membantu pengguna menemukan film yang sesuai adalah dengan memberikan rekomendasi berdasarkan genre yang mereka sukai. Genre adalah salah satu atribut utama yang digunakan oleh pengguna untuk memilih film, sehingga sistem rekomendasi berbasis genre dapat lebih efektif dalam menyajikan film-film yang relevan.
 
-Proyek ini penting karena dengan semakin banyaknya konten yang tersedia di platform streaming seperti Netflix, pengguna sering kali kesulitan menemukan film yang sesuai dengan selera mereka. Sistem rekomendasi yang efektif dapat meningkatkan kepuasan pengguna dan meningkatkan waktu yang dihabiskan pengguna pada platform.
+### Tujuan Proyek
+Proyek ini bertujuan untuk mengembangkan sebuah model sistem rekomendasi yang dapat membantu pengguna menemukan film-film yang relevan berdasarkan preferensi mereka. Model ini menggunakan dataset "NetflixOriginals.csv" yang tersedia di repositori GitHub, yang berisi informasi tentang film-film original Netflix, termasuk judul, genre, bahasa, tanggal rilis, dan skor IMDB. Sistem rekomendasi ini akan membantu pengguna menemukan film-film yang relevan berdasarkan preferensi mereka.
 
 ## Business Understanding
 ### Problem Statements
 1. Bagaimana membuat sistem rekomendasi yang dapat memberikan saran film yang relevan berdasarkan genre?
-2. Bagaimana menggunakan informasi skor IMDB untuk meningkatkan kualitas rekomendasi?
+2. Bagaimana meningkatkan kualitas rekomendasi dengan memanfaatkan informasi skor IMDB dan preferensi pengguna lainnya?
 
 ### Goals
 1. Mengembangkan model content-based filtering untuk merekomendasikan film berdasarkan genre.
-2. Mengembangkan model collaborative filtering untuk merekomendasikan film berdasarkan skor IMDB dan preferensi pengguna lainnya.
+2. Meningkatkan kualitas rekomendasi dengan mengembangkan model collaborative filtering yang memanfaatkan skor IMDB dan preferensi pengguna lainnya.
 
 ### Solution Approach
 1. Content-Based Filtering: Menggunakan teknik TF-IDF untuk mengubah deskripsi genre menjadi fitur numerik dan menghitung kemiripan kosinus antara film untuk memberikan rekomendasi.
@@ -21,7 +23,8 @@ Proyek ini penting karena dengan semakin banyaknya konten yang tersedia di platf
 Dataset yang digunakan adalah dari Kaggle dengan link [Netflix Dataset](https://www.kaggle.com/datasets/luiscorter/netflix-original-films-imdb-scores) Dataset ini berisi 584 sampel dan 6 atribut.
 
 ### Kondisi Dataset
-Setelah dilakukan pemeriksaan, tidak ditemukan adanya nilai null atau missing values pada dataset ini. Hal ini menunjukkan bahwa dataset sudah lengkap dan tidak perlu dilakukan imputasi data.
+* Nilai Null: Dataset ini tidak memiliki nilai null, sehingga tidak diperlukan penanganan missing values.
+* Sebaran Data: Dataset ini terdiri dari 6 atribut yang memiliki sebaran nilai yang bervariasi, seperti Title, Genre, IMDB Score, dan lain-lain.
 
 ### Variabel pada Netflix Dataset adalah sebagai berikut:
 1. Title: Judul film Netflix Original.
@@ -34,34 +37,41 @@ Setelah dilakukan pemeriksaan, tidak ditemukan adanya nilai null atau missing va
 Dataset ini memberikan informasi yang cukup lengkap mengenai atribut-atribut yang relevan dalam membuat sistem rekomendasi berdasarkan preferensi pengguna terhadap film. Dengan tidak adanya nilai null, dataset ini siap digunakan untuk tahap selanjutnya dalam proses pengembangan model rekomendasi.
 
 ### Exploratory Data Analysis (EDA):
-1. Informasi Dataset: Menampilkan informasi mengenai tipe data dari masing-masing kolom serta jumlah nilai non-null di setiap kolom.
+1. 5 baris pertama dari dataset : Menampilkan lima baris pertama dari dataset
 
-2. Statistik Deskriptif: Menampilkan statistik deskriptif dari dataset seperti mean, standar deviasi, nilai minimum dan maksimum, serta kuartil.
+2. Informasi Dataset: Menampilkan informasi mengenai tipe data dari masing-masing kolom serta jumlah nilai non-null di setiap kolom.
 
-3. Visualisasi Data: Menampilkan visualisasi data untuk memberikan gambaran lebih jelas tentang distribusi data dan hubungan antar variabel.
+3. Statistik Deskriptif: Menampilkan statistik deskriptif dari dataset seperti mean, standar deviasi, nilai minimum dan maksimum, serta kuartil.
+   
+4. Mengecek Jumlah Null: Langkah ini memastikan bahwa dataset bersih dan siap untuk digunakan dalam analisis. Dalam kasus ini, tidak ada nilai yang hilang (missing values) pada dataset, sehingga tidak diperlukan penanganan lebih lanjut untuk nilai yang hilang.
+  
+5. Visualisasi Data: Menampilkan visualisasi data untuk memberikan gambaran lebih jelas tentang distribusi data dan hubungan antar variabel.
 
 ## Data Preparation
-1. Data Cleaning: Langkah ini memastikan bahwa dataset bersih dan siap untuk digunakan dalam analisis. Dalam kasus ini, tidak ada nilai yang hilang (missing values) pada dataset, sehingga tidak diperlukan penanganan lebih lanjut untuk nilai yang hilang.
-
-2. Data Transformation: 
+1. Data Transformation: 
     * Mengubah kolom 'Premiere' menjadi format datetime dan kemudian menjadi numerik menggunakan encoding ordinal.
     * Mengubah kolom 'Language' menjadi format numerik menggunakan LabelEncoder.
 
-3. Normalisasi Data: Normalisasi adalah proses penskalaan fitur-fitur sehingga mereka berada dalam skala yang sama. Ini penting karena banyak algoritma pembelajaran mesin bekerja lebih baik ketika fitur-fitur memiliki rentang nilai yang serupa.
+2. Normalisasi Data: Normalisasi adalah proses penskalaan fitur-fitur sehingga mereka berada dalam skala yang sama. Ini penting karena banyak algoritma pembelajaran mesin bekerja lebih baik ketika fitur-fitur memiliki rentang nilai yang serupa.
+
+3. TF-IDF Vectorizer : Menggunakan TF-IDF untuk mengubah deskripsi genre film menjadi representasi numerik dengan menggunakan skema Term Frequency-Inverse Document Frequency (TF-IDF). Stop words bahasa Inggris dihapus untuk meningkatkan kualitas vektorisasi.
 
 4. Memisahkan Fitur dan Label: Memisahkan fitur dan label adalah langkah di mana kita memisahkan atribut input (fitur) dari target output (label) yang ingin diprediksi oleh model.
+* Dalam proyek ini:
+    * Fitur (X): Semua kolom yang telah dinormalisasi.
+    * Label (y): Kolom 'IMDB Score'.
 
 5. Split Data Menjadi Training dan Testing Set: Membagi data menjadi training dan testing set adalah langkah untuk memastikan model dapat dievaluasi secara objektif. Data training digunakan untuk melatih model, sedangkan data testing digunakan untuk menguji performa model pada data yang belum pernah dilihat sebelumnya.
+* Dalam proyek ini, konfigurasi split data menggunakan skala 80:20, artinya 80% data digunakan untuk training dan 20% data digunakan untuk testing. Penggunaan random_state=42 memastikan bahwa pembagian data dilakukan secara konsisten setiap kali kode dijalankan, memungkinkan reproduksibilitas hasil.
 
 ## Modeling and Result
 ### Content-Based Filtering
 Content-Based Filtering adalah pendekatan dalam sistem rekomendasi yang menggunakan informasi atau konten dari item yang direkomendasikan untuk membuat rekomendasi kepada pengguna. Dalam konteks ini, content-based filtering digunakan untuk merekomendasikan film berdasarkan kesamaan genre mereka.
 
 #### Tahapan Pembuatan Model
-1. TF-IDF Vectorizer : Menggunakan TF-IDF untuk mengubah deskripsi genre film menjadi representasi numerik dengan menggunakan skema Term Frequency-Inverse Document Frequency (TF-IDF). Stop words bahasa Inggris dihapus untuk meningkatkan kualitas vektorisasi.
-2. Cosine Similarity: Untuk menghitung seberapa mirip satu film dengan film lain berdasarkan vektor representasi TF-IDF mereka.
-3. Get Recommendations: Fungsi get_recommendations digunakan untuk memberikan rekomendasi film yang mirip berdasarkan film yang dipilih oleh pengguna.
-4. Example Recommendations: Memberikan contoh rekomendasi
+1. Cosine Similarity: Untuk menghitung seberapa mirip satu film dengan film lain berdasarkan vektor representasi TF-IDF mereka.
+2. Get Recommendations: Fungsi get_recommendations digunakan untuk memberikan rekomendasi film yang mirip berdasarkan film yang dipilih oleh pengguna.
+3. Example Recommendations: Memberikan contoh rekomendasi
 
 #### Kelebihan dan Kekurangan Content-Based Filtering
 * Kelebihan:
@@ -72,7 +82,7 @@ Content-Based Filtering adalah pendekatan dalam sistem rekomendasi yang mengguna
     * Tidak dapat menangkap preferensi pengguna secara dinamis.
 
 ### Collaborative Filtering
-Collaborative Filtering adalah pendekatan yang berfokus pada penggunaan informasi dari pengguna lain untuk memberikan rekomendasi. Dalam kasus ini, collaborative filtering digunakan untuk merekomendasikan film berdasarkan preferensi pengguna lain yang memiliki kesamaan dalam skor IMDB.
+Collaborative Filtering adalah pendekatan yang berfokus pada penggunaan informasi dari pengguna lain untuk memberikan rekomendasi. Dalam kasus ini, collaborative filtering digunakan untuk merekomendasikan film berdasarkan preferensi pengguna lain yang memiliki kesamaan dalam preferensi film atau interaksi sebelumnya.
 
 #### Tahapan Pembuatan Model
 1. Pivot Table: Pivot table dibuat dengan film sebagai indeks, genre sebagai kolom, dan skor IMDB sebagai nilai untuk memfasilitasi perhitungan kemiripan.
